@@ -1,3 +1,0 @@
-float DW;
-
-float DH;
