@@ -43,3 +43,13 @@
 #define PLAYER_PIECE X_PIECE
 #define STATE_AI_PLAYING 93
 #define STATE_DRAW 92
+
+#define GAME_OVER_BACKGROUND "res/Pause Background.png"
+#define GAME_OVER_WINDOW "res/Pause Window.png"
+#define RETRY_BUTTON "res/Retry Button.png"
+#define RETRY_BUTTON_PRESSED "res/Retry Button.png"
+#define HOME_BUTTON "res/Home Button.png"
+#define HOME_BUTTON_PRESSED "res/Home Button.png"
+#define GAME_OVER_BACKGROUND_FADE_IN_TIME 0.5
+
+#define MENU_MOVE_BOUNCE_DURATION 1.5

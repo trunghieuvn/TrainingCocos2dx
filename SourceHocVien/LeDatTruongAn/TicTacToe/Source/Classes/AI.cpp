@@ -21,6 +21,30 @@ AI::AI(int playerPiece)
 	}
 
 	checkMatchVector.push_back({ 0, 2, 1, 2, 2, 2 });
+	checkMatchVector.push_back({ 0, 2, 0, 1, 0, 0 });
+	checkMatchVector.push_back({ 0, 2, 1, 1, 2, 0 });
+	checkMatchVector.push_back({ 2, 2, 1, 2, 0, 2 });
+	checkMatchVector.push_back({ 2, 2, 2, 1, 2, 0 });
+	checkMatchVector.push_back({ 2, 2, 1, 1, 0, 0 });
+	checkMatchVector.push_back({ 0, 0, 0, 1, 0, 2 });
+	checkMatchVector.push_back({ 0, 0, 1, 0, 2, 0 });
+	checkMatchVector.push_back({ 0, 0, 1, 1, 2, 2 });
+	checkMatchVector.push_back({ 2, 0, 2, 1, 2, 2 });
+	checkMatchVector.push_back({ 2, 0, 1, 0, 0, 0 });
+	checkMatchVector.push_back({ 2, 0, 1, 1, 0, 2 });
+	checkMatchVector.push_back({ 0, 1, 1, 1, 2, 1 });
+	checkMatchVector.push_back({ 1, 2, 1, 1, 1, 0 });
+	checkMatchVector.push_back({ 2, 1, 1, 1, 0, 1 });
+	checkMatchVector.push_back({ 1, 0, 1, 1, 1, 2 });
+	checkMatchVector.push_back({ 0, 1, 2, 1, 1, 1 });
+	checkMatchVector.push_back({ 1, 2, 1, 0, 1, 1 });
+	checkMatchVector.push_back({ 0, 2, 2, 0, 1, 1 });
+	checkMatchVector.push_back({ 2, 2, 0, 0, 1, 1 });
+	checkMatchVector.push_back({ 0, 2, 2, 2, 1, 2 });
+	checkMatchVector.push_back({ 0, 0, 2, 0, 1, 0 });
+	checkMatchVector.push_back({ 0, 2, 0, 0, 0, 1 });
+	checkMatchVector.push_back({ 2, 2, 2, 0, 2, 1 });
+
 }
 
 void AI::PlacePiece(int(*gridArray)[3][3], cocos2d::Sprite *gridPieces[3][3], int *gameState)

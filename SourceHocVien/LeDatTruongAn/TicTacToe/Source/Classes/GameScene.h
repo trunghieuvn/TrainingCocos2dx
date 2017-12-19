@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "AI.h"
+#include "UI.h"
 
 class GameScene : public cocos2d::Layer
 {
@@ -41,4 +42,5 @@ private:
 	int gameState;
 
 	AI* ai;
+	UI* ui;
 };

@@ -47,7 +47,9 @@ bool GameScene::init()
 
 	turn = PLAYER_PIECE;
 
-	ai = new AI::AI(turn);
+	ai = new AI(turn);
+
+	ui = new UI(this);
 
 	gameState = STATE_PLAYING;
 
@@ -241,6 +243,10 @@ void GameScene::CheckWin(int x, int y)
 	if (0 == emptyNum)
 	{
 		gameState = STATE_DRAW;
+	}
+
+	if (STATE_DRAW == gameState || STATE_WON == gameState || STATE_LOSE == gameState){
+		ui->ShowGameOver(this);
 	}
 
 	std::cout << gameState << std::endl;
