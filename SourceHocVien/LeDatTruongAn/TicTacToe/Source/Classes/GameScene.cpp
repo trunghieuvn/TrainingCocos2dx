@@ -48,8 +48,11 @@ bool GameScene::init()
 	turn = PLAYER_PIECE;
 
 	ai = new AI(turn);
+<<<<<<< HEAD
 
 	ui = new UI(this);
+=======
+>>>>>>> 9eecd7e680e298c77fec3a14714e88a33e619b44
 
 	gameState = STATE_PLAYING;
 
