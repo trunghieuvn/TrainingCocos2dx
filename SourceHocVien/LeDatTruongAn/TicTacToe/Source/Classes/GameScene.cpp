@@ -47,7 +47,7 @@ bool GameScene::init()
 
 	turn = PLAYER_PIECE;
 
-	ai = new AI::AI(turn);
+	ai = new AI(turn);
 
 	gameState = STATE_PLAYING;
 
