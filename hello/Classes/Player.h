@@ -1,5 +1,5 @@
-#ifndef __Player_SCENE_H__
-#define __Player_SCENE_H__
+#ifndef __Player_H__
+#define __Player_H__
 
 #include "cocos2d.h"
 
@@ -24,4 +24,4 @@ private:
 	void update(float delta);
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // __Player_H__

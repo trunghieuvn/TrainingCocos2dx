@@ -27,4 +27,4 @@ private:
 	Player *player;
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // __InGameScene_SCENE_H__

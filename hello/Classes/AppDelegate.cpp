@@ -57,10 +57,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("hello", 
+        glview = GLViewImpl::createWithRect("Ball Trail",
 			cocos2d::Rect(0, 0, designResolutionSize.width/2, designResolutionSize.height/2));
 #else
-        glview = GLViewImpl::create("hello");
+        glview = GLViewImpl::create("Ball Trail");
 #endif
         director->setOpenGLView(glview);
     }

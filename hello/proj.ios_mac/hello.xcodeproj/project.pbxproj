@@ -27,6 +27,8 @@
 		490304751FFBD9190009652B /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 4903046F1FFBD9190009652B /* main.png */; };
 		4903047A1FFBD9290009652B /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 490304771FFBD9290009652B /* Player.cpp */; };
 		4903047B1FFBD9290009652B /* InGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 490304781FFBD9290009652B /* InGameScene.cpp */; };
+		499779931FFBEE6900095668 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 490304771FFBD9290009652B /* Player.cpp */; };
+		499779941FFBEE7100095668 /* InGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 490304781FFBD9290009652B /* InGameScene.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -102,6 +104,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
+		};
+		4997798F1FFBDEB300095668 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 507B40FD1C31BDD30067B53E;
+			remoteInfo = "libcocos2d tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -249,6 +258,7 @@
 			children = (
 				1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */,
 				1AC6FB07180E9839004C840B /* libcocos2d iOS.a */,
+				499779901FFBDEB300095668 /* libcocos2d tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -315,12 +325,12 @@
 			children = (
 				490304781FFBD9290009652B /* InGameScene.cpp */,
 				490304791FFBD9290009652B /* InGameScene.h */,
+				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
+				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
 				490304771FFBD9290009652B /* Player.cpp */,
 				490304761FFBD9290009652B /* Player.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
-				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -466,6 +476,13 @@
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		499779901FFBDEB300095668 /* libcocos2d tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d tvOS.a";
+			remoteRef = 4997798F1FFBDEB300095668 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -533,9 +550,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				499779931FFBEE6900095668 /* Player.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				499779941FFBEE7100095668 /* InGameScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

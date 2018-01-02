@@ -84,6 +84,7 @@ void Player::update(float dt)
 	{
 		rotateDirection = -1;
 	}
+    
 	rotate = layerArrow->getRotationX();
 	rotate += rotateDirection * 1;
 	CCLOG("angle: %f", rotate);
