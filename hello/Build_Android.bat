@@ -1,1 +1,2 @@
-cocos run -p android --android-studio
+call cocos run -p android --android-studio
+pause
