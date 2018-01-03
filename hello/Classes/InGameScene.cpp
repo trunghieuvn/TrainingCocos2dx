@@ -5,26 +5,26 @@ USING_NS_CC;
 
 Scene* InGameScene::createScene()
 {
-    return InGameScene::create();
+	return InGameScene::create();
 }
 
 // on "init" you need to initialize your instance
 bool InGameScene::init()
 {
-    //////////////////////////////
-    // 1. super init first
-    if ( !Scene::init() )
-    {
-        return false;
-    }
+	//////////////////////////////
+	// 1. super init first
+	if (!Scene::init())
+	{
+		return false;
+	}
 
-    auto visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	auto visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	// Background
 	auto background = Sprite::create("background.png");
 	background->setPosition(Vec2(origin.x + visibleSize.width / 2,
-		origin.y + visibleSize.height/2));
+		origin.y + visibleSize.height / 2));
 	addChild(background);
 
 	auto border = Sprite::create("red_border.png");
@@ -39,7 +39,7 @@ bool InGameScene::init()
 	listener->onTouchCancelled = CC_CALLBACK_2(InGameScene::onTouchCancelled, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 	// Add Event Touch End
-	
+
 	Vec2 pointStart = Vec2(320, 250);
 	auto begin = Sprite::create("begin.png");
 	begin->setPosition(pointStart);
@@ -48,13 +48,16 @@ bool InGameScene::init()
 	player = Player::create(pointStart);
 	player->mState = PlayerState::Rotate;
 	addChild(player);
-    return true;
+	return true;
 }
 
 
 // called when the touch first begins
 bool InGameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
+	Point touchPoint = touch->getLocation();
+	CCLOG("Touch %f - %f", touchPoint.x, touchPoint.y);
+
 	player->mState = PlayerState::Orientation;
 	return true; // true if the function wants to swallow the touch
 }
@@ -69,10 +72,17 @@ void InGameScene::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event)
 void InGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 {
 	player->mState = PlayerState::Stationary;
+	CCLOG("rotate: %d", player->rotate);
 
-	Point touchPoint = touch->getLocation();
-	CCLOG("Touch %f - %f", touchPoint.x, touchPoint.y);
-	
+	float dis = Director::getInstance()->getWinSize().height * player->parent *0.01f - player->getPos().y;
+	float angle = player->rotate;
+	float radius = CC_DEGREES_TO_RADIANS(angle);
+	float x = dis * sinf(radius);
+	float y = dis * cosf(radius);
+
+	Vec2 touchPoint = player->getPos();
+	touchPoint.add(Vec2(x, y));
+
 	player->MoveTo(touchPoint);
 }
 

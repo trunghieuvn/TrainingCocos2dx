@@ -20,17 +20,20 @@ public:
 	void MoveTo(cocos2d::Vec2 point);
 
 	PlayerState mState;
+
+	int rotate;
+	int parent;
+
+	inline cocos2d::Vec2 getPos() { return ball->getPosition(); }
 private:
 	cocos2d::Vec2 pointStart;
 
 	cocos2d::Sprite *ball;
 	
 	cocos2d::Layer* layerArrow;
-	int parent;
 	int num;
 	cocos2d::ProgressTimer* directionArrow;
 
-	int rotate;
 	int rotateDirection;
 	void update(float delta);
 };

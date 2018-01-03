@@ -25,7 +25,7 @@ bool Player::init(cocos2d::Vec2 pointStart)
 
 	layerArrow = Layer::create();
 	layerArrow->setPosition(pointStart);
-	layerArrow->setAnchorPoint(Vec2(0.5, 0));
+	layerArrow->setAnchorPoint(Vec2(0, 0));
 
 	addChild(layerArrow);
 
@@ -55,8 +55,9 @@ bool Player::init(cocos2d::Vec2 pointStart)
 	num = 1;
 	rotate = 0;
 	rotateDirection = 1;
-	layerArrow->setRotationX(rotate);
+	layerArrow->setRotation(rotate);
 	mState = PlayerState::Rotate;
+
 	this->scheduleUpdate();
 	return true;
 }
@@ -65,7 +66,16 @@ void Player::MoveTo(cocos2d::Vec2 point)
 {
 	auto move = MoveTo::create(0.15f, point);
 	auto move_ease_in = EaseOut::create(move->clone(), 2.0f);
-	this->ball->runAction(move_ease_in);
+
+	// auto end = CallFunc::create(this, CC_CALLFUNC_SELECTOR(Player::doneMove));
+	auto doneMove = CallFunc::create([this]() { 
+		mState = PlayerState::Stationary;
+		parent = 0;
+		directionArrow->setPercentage(parent);
+	});
+
+	auto action = Sequence::create(move_ease_in, doneMove, nullptr);
+	this->ball->runAction(action);
 }
 
 void Player::update(float dt)
@@ -77,19 +87,18 @@ void Player::update(float dt)
 	case Rotate:
 	{
 		// Rotate
-		if (rotate <= -40)
+		if (rotate <= -45)
 		{
 			rotateDirection = 1;
 		}
-		if (rotate >= 40)
+		if (rotate >= 45)
 		{
 			rotateDirection = -1;
 		}
 
 		rotate = layerArrow->getRotationX();
 		rotate += rotateDirection * 1;
-		CCLOG("angle: %f", rotate);
-		layerArrow->setRotationX(rotate);
+		layerArrow->setRotation(rotate);
 		break;
 	}
 	case Orientation:
