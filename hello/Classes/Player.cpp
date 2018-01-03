@@ -62,20 +62,22 @@ bool Player::init(cocos2d::Vec2 pointStart)
 	return true;
 }
 
-void Player::MoveTo(cocos2d::Vec2 point)
+void Player::Move(cocos2d::Vec2 point)
 {
-	auto move = MoveTo::create(0.15f, point);
-	auto move_ease_in = EaseOut::create(move->clone(), 2.0f);
+	auto move_ease_in = EaseOut::create(MoveBy::create(0.15f, point), 2.0f);
 
 	// auto end = CallFunc::create(this, CC_CALLFUNC_SELECTOR(Player::doneMove));
-	auto doneMove = CallFunc::create([this]() { 
-		mState = PlayerState::Stationary;
+	auto doneMove = CallFunc::create([this, point]() 
+	{
+		mState = PlayerState::Rotate;
 		parent = 0;
 		directionArrow->setPercentage(parent);
 	});
 
 	auto action = Sequence::create(move_ease_in, doneMove, nullptr);
-	this->ball->runAction(action);
+	this->
+		//ball->
+		runAction(action);
 }
 
 void Player::update(float dt)

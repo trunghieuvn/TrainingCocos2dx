@@ -25,6 +25,7 @@ private:
 	// Add Event Touch End
 
 	Player *player;
+	cocos2d::Layer *background;
 };
 
 #endif // __InGameScene_SCENE_H__

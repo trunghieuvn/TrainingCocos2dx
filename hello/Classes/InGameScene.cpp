@@ -22,11 +22,11 @@ bool InGameScene::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	// Background
-	auto background = Sprite::create("background.png");
-	background->setPosition(Vec2(origin.x + visibleSize.width / 2,
+	auto background1 = Sprite::create("background.png");
+	background1->setPosition(Vec2(origin.x + visibleSize.width / 2,
 		origin.y + visibleSize.height / 2));
-	addChild(background);
-
+	
+	
 	auto border = Sprite::create("red_border.png");
 
 
@@ -43,11 +43,18 @@ bool InGameScene::init()
 	Vec2 pointStart = Vec2(320, 250);
 	auto begin = Sprite::create("begin.png");
 	begin->setPosition(pointStart);
-	addChild(begin);
+
+	background = Layer::create();
+	this->addChild(background);
+	background->addChild(background1);
+	background->addChild(begin);
 
 	player = Player::create(pointStart);
 	player->mState = PlayerState::Rotate;
 	addChild(player);
+	
+	// this->runAction(Follow::create(player->getBall(), Rect(0, 0, visibleSize.width, visibleSize.height * 2)));
+
 	return true;
 }
 
@@ -74,16 +81,21 @@ void InGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 	player->mState = PlayerState::Stationary;
 	CCLOG("rotate: %d", player->rotate);
 
-	float dis = Director::getInstance()->getWinSize().height * player->parent *0.01f - player->getPos().y;
+	float dis = Director::getInstance()->getWinSize().height
+		 * player->parent *0.01f 
+		- player->getBall()->getPosition().y;
 	float angle = player->rotate;
 	float radius = CC_DEGREES_TO_RADIANS(angle);
 	float x = dis * sinf(radius);
 	float y = dis * cosf(radius);
 
-	Vec2 touchPoint = player->getPos();
-	touchPoint.add(Vec2(x, y));
+	Vec2 denta = Vec2(x, y);
+	player->Move(denta);
 
-	player->MoveTo(touchPoint);
+	/*auto move = MoveTo::create(0.25f, Vec2(0, -y));
+	auto move_ease_in = EaseOut::create(move->clone(), 2.0f);
+	auto action = Sequence::create(move_ease_in, nullptr);
+	background->runAction(action);*/
 }
 
 // called when the device goes to another application such as a phone call
