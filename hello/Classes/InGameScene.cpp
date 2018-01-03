@@ -25,7 +25,9 @@ bool InGameScene::init()
 	auto background1 = Sprite::create("background.png");
 	background1->setPosition(Vec2(origin.x + visibleSize.width / 2,
 		origin.y + visibleSize.height / 2));
-	
+	auto background2 = Sprite::create("background.png");
+	background2->setPosition(Vec2(background1->getPosition().x,
+		background1->getPosition().y + background1->getContentSize().height));
 	
 	auto border = Sprite::create("red_border.png");
 
@@ -46,7 +48,9 @@ bool InGameScene::init()
 
 	background = Layer::create();
 	this->addChild(background);
+
 	background->addChild(background1);
+	background->addChild(background2);
 	background->addChild(begin);
 
 	player = Player::create(pointStart);
@@ -92,8 +96,7 @@ void InGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 	Vec2 denta = Vec2(x, y);
 	player->Move(denta);
 
-	/*auto move = MoveTo::create(0.25f, Vec2(0, -y));
-	auto move_ease_in = EaseOut::create(move->clone(), 2.0f);
+	/*auto move_ease_in = EaseOut::create(MoveBy::create(0.25f, Vec2(-x, -y)), 2.0f);
 	auto action = Sequence::create(move_ease_in, nullptr);
 	background->runAction(action);*/
 }
