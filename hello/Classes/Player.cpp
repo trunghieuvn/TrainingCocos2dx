@@ -2,10 +2,10 @@
 
 USING_NS_CC;
 
-Player* Player::create()
+Player* Player::create(cocos2d::Vec2 pos)
 {
 	Player *pRet = new Player();
-	if (pRet && pRet->init())
+	if (pRet && pRet->init(pos))
 	{
 		pRet->autorelease();
 		return pRet;
@@ -17,21 +17,23 @@ Player* Player::create()
 		return NULL;
 	}
 }
-bool Player::init() 
+bool Player::init(cocos2d::Vec2 pointStart)
 {
-	Vec2 pointStart = Vec2(320, 250);
-
 	ball = Sprite::create("main.png");
 	ball->setPosition(pointStart);
 	addChild(ball);
-	
+
 	layerArrow = Layer::create();
+	layerArrow->setPosition(pointStart);
+	layerArrow->setAnchorPoint(Vec2(0.5, 0));
+
 	addChild(layerArrow);
 
 	auto sprite = Sprite::create("arrow_2.png");
-	sprite->setPosition(Vec2(pointStart.x, pointStart.y
-		+ sprite->getContentSize().height / 2 
-		+ ball->getContentSize().height));
+	sprite->setPosition(Vec2(0,
+		sprite->getContentSize().height / 2
+		+ ball->getContentSize().height
+	));
 	layerArrow->addChild(sprite);
 
 	directionArrow = ProgressTimer::create(Sprite::create("arrow_1.png"));
@@ -41,21 +43,24 @@ bool Player::init()
 
 	directionArrow->setPercentage(0);
 
-	directionArrow->setPosition(Vec2(pointStart.x, pointStart.y 
-		+ sprite->getContentSize().height / 2 
-		+ ball->getContentSize().height ));
+	directionArrow->setPosition(Vec2(0,
+		sprite->getContentSize().height / 2
+		+ ball->getContentSize().height
+	));
+
 	layerArrow->addChild(directionArrow);
 
-	layerArrow->setAnchorPoint(Vec2(0.5, 0));
 
 	parent = 0;
 	num = 1;
 	rotate = 0;
 	rotateDirection = 1;
 	layerArrow->setRotationX(rotate);
+	mState = PlayerState::Rotate;
 	this->scheduleUpdate();
 	return true;
 }
+
 void Player::MoveTo(cocos2d::Vec2 point)
 {
 	auto move = MoveTo::create(0.15f, point);
@@ -65,28 +70,44 @@ void Player::MoveTo(cocos2d::Vec2 point)
 
 void Player::update(float dt)
 {
-	parent += num;
-	if (parent == 100)
+	switch (mState)
 	{
-		num = -1;
-	}
-	if (parent == 0)
+	case Stationary:
+		break;
+	case Rotate:
 	{
-		num = 1;
-	}
-	directionArrow->setPercentage(parent);
+		// Rotate
+		if (rotate <= -40)
+		{
+			rotateDirection = 1;
+		}
+		if (rotate >= 40)
+		{
+			rotateDirection = -1;
+		}
 
-	if (rotate <= -20)
-	{
-		rotateDirection = 1;
+		rotate = layerArrow->getRotationX();
+		rotate += rotateDirection * 1;
+		CCLOG("angle: %f", rotate);
+		layerArrow->setRotationX(rotate);
+		break;
 	}
-	if (rotate >= 20)
+	case Orientation:
 	{
-		rotateDirection = -1;
+		// Arrow direction bar
+		parent += num;
+		if (parent == 100)
+		{
+			num = -1;
+		}
+		if (parent == 0)
+		{
+			num = 1;
+		}
+		directionArrow->setPercentage(parent);
+		break;
 	}
-    
-	rotate = layerArrow->getRotationX();
-	rotate += rotateDirection * 1;
-	CCLOG("angle: %f", rotate);
-	layerArrow->setRotationX(rotate);
+	default:
+		break;
+	}
 }

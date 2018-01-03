@@ -3,15 +3,26 @@
 
 #include "cocos2d.h"
 
+enum PlayerState
+{
+	Stationary,
+	Rotate,
+	Orientation
+};
+
 class Player : public cocos2d::Node
 {
 public:
-    static Player* create();
+    static Player* create(cocos2d::Vec2 pos);
 
-    virtual bool init();
+    virtual bool init(cocos2d::Vec2 point);
 	
 	void MoveTo(cocos2d::Vec2 point);
+
+	PlayerState mState;
 private:
+	cocos2d::Vec2 pointStart;
+
 	cocos2d::Sprite *ball;
 	
 	cocos2d::Layer* layerArrow;

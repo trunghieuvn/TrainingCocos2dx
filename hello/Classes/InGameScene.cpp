@@ -27,6 +27,8 @@ bool InGameScene::init()
 		origin.y + visibleSize.height/2));
 	addChild(background);
 
+	auto border = Sprite::create("red_border.png");
+
 
 	// Add Event Touch 
 	EventListenerTouchOneByOne *listener = EventListenerTouchOneByOne::create();
@@ -38,7 +40,13 @@ bool InGameScene::init()
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 	// Add Event Touch End
 	
-	player = Player::create();
+	Vec2 pointStart = Vec2(320, 250);
+	auto begin = Sprite::create("begin.png");
+	begin->setPosition(pointStart);
+	addChild(begin);
+
+	player = Player::create(pointStart);
+	player->mState = PlayerState::Rotate;
 	addChild(player);
     return true;
 }
@@ -47,6 +55,7 @@ bool InGameScene::init()
 // called when the touch first begins
 bool InGameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
+	player->mState = PlayerState::Orientation;
 	return true; // true if the function wants to swallow the touch
 }
 
@@ -59,6 +68,8 @@ void InGameScene::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event)
 // called when the user lifts their finger
 void InGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 {
+	player->mState = PlayerState::Stationary;
+
 	Point touchPoint = touch->getLocation();
 	CCLOG("Touch %f - %f", touchPoint.x, touchPoint.y);
 	

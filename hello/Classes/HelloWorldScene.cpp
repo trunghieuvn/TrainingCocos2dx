@@ -66,7 +66,6 @@ bool HelloWorld::init()
         this->addChild(sprite, 0);
     }
 
-
 	scheduleOnce(schedule_selector(HelloWorld::SwitchToMainMenu), 2.0f);
     return true;
 }
