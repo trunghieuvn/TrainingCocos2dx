@@ -20,11 +20,10 @@ Player* Player::create(cocos2d::Vec2 pos)
 bool Player::init(cocos2d::Vec2 pointStart)
 {
 	ball = Sprite::create("main.png");
-	ball->setPosition(pointStart);
+	setPosition(pointStart);
 	addChild(ball);
 
 	layerArrow = Layer::create();
-	layerArrow->setPosition(pointStart);
 	layerArrow->setAnchorPoint(Vec2(0, 0));
 
 	addChild(layerArrow);
@@ -64,7 +63,7 @@ bool Player::init(cocos2d::Vec2 pointStart)
 
 void Player::Move(cocos2d::Vec2 point)
 {
-	auto move_ease_in = EaseOut::create(MoveBy::create(0.15f, Vec2(point.x, point.y)), 2.0f);
+	auto move_ease_in = EaseOut::create(MoveBy::create(0.5f, Vec2(point.x, point.y)), 2.0f);
 
 	// auto end = CallFunc::create(this, CC_CALLFUNC_SELECTOR(Player::doneMove));
 	auto doneMove = CallFunc::create([this, point]() 

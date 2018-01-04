@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Player.h"
+#include "ObstacleCircel.h"
 
 class InGameScene : public cocos2d::Scene
 {
@@ -26,6 +27,10 @@ private:
 
 	Player *player;
 	cocos2d::Layer *background;
+
+	ObstacleCircel* circle;
+
+	void update(float dt);
 };
 
 #endif // __InGameScene_SCENE_H__

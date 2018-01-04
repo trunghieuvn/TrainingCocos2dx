@@ -10,10 +10,18 @@ public:
 
     virtual bool init();
 
+	cocos2d::Sprite *circle_background;
+	inline float getRadius() 
+	{ 
+		return circle_background->getContentSize().width > circle_background->getContentSize().height 
+			? circle_background->getContentSize().width : circle_background->getContentSize().height;
+	}
+	bool isCollision;
 private:
-	cocos2d::Sprite *ball;
 	
 	void update(float delta);
+	cocos2d::ProgressTimer *circle_foreground_on;
+	int parent;
 };
 
 #endif // __Player_H__

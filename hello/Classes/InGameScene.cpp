@@ -1,6 +1,7 @@
 #include "InGameScene.h"
 #include "SimpleAudioEngine.h"
 
+
 USING_NS_CC;
 
 Scene* InGameScene::createScene()
@@ -53,12 +54,16 @@ bool InGameScene::init()
 	background->addChild(background2);
 	background->addChild(begin);
 
+	// Obstacle
+	circle = ObstacleCircel::create();
+	circle->setPosition(Vec2(400, 800));
+	addChild(circle);
+
 	player = Player::create(pointStart);
 	player->mState = PlayerState::Rotate;
 	addChild(player);
-	
-	// this->runAction(Follow::create(player->getBall(), Rect(0, 0, visibleSize.width, visibleSize.height * 2)));
 
+	this->scheduleUpdate();
 	return true;
 }
 
@@ -96,14 +101,33 @@ void InGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 	Vec2 denta = Vec2(x, y);
 	player->Move(denta);
 
-	auto move_ease_in = EaseOut::create(MoveBy::create(0.25f, Vec2(0, y)), 2.0f);
-	auto action = Sequence::create(move_ease_in, nullptr);
+	auto move_ease_in = EaseOut::create(MoveBy::create(1.75f, Vec2(0, y)), 2.0f);
+	auto action = Sequence::create( move_ease_in, nullptr);
 	auto cam = Camera::getDefaultCamera();
 	cam->runAction(action);
+
+	CCLOG("x: %f, y:%f", player->getPosition().x, player->getPosition().y);
+	CCLOG("x: %f, y:%f", circle->getPosition().x, circle->getPosition().y);
+
 }
 
 // called when the device goes to another application such as a phone call
 void InGameScene::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *event)
 {
 
+}
+
+void InGameScene::update(float dt)
+{
+	float r2 = player->getBall()->getContentSize().width + circle->getRadius();
+	float dis = player->getPosition().distance(circle->getPosition());
+	if(dis < r2)
+	{
+		circle->isCollision = true;
+		// CCLOG("Player ball detect collision .......");
+	}
+	else
+	{
+		circle->isCollision = false;
+	}
 }
