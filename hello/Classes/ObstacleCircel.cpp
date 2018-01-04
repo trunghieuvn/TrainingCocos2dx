@@ -2,10 +2,10 @@
 
 USING_NS_CC;
 
-ObstacleCircel* ObstacleCircel::create()
+ObstacleCircel* ObstacleCircel::create(cocos2d::Vec2 pos)
 {
 	ObstacleCircel *pRet = new ObstacleCircel();
-	if (pRet && pRet->init())
+	if (pRet && pRet->init(pos))
 	{
 		pRet->autorelease();
 		return pRet;
@@ -17,12 +17,11 @@ ObstacleCircel* ObstacleCircel::create()
 		return NULL;
 	}
 }
-bool ObstacleCircel::init()
+bool ObstacleCircel::init(cocos2d::Vec2 pointStart)
 {
-	Vec2 pointStart = Vec2(320, 250);
+	setPosition(pointStart);
 
 	auto layer = Layer::create();
-
 	circle_background = Sprite::create("circle_background.png");
 
 	auto circle_foreground = Sprite::create("circle_foreground.png");
@@ -37,11 +36,12 @@ bool ObstacleCircel::init()
 	layer->addChild(circle_background_in);
 
 	addChild(layer);
+	
+	parent = 0;
+	isCollision = false;
 
 	this->scheduleUpdate();
 
-	parent = 0;
-	isCollision = false;
 	return true;
 }
 

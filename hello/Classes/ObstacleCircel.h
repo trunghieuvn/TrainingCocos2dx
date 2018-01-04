@@ -6,9 +6,9 @@
 class ObstacleCircel : public cocos2d::Node
 {
 public:
-    static ObstacleCircel* create();
+    static ObstacleCircel* create(cocos2d::Vec2 pos);
 
-    virtual bool init();
+    virtual bool init(cocos2d::Vec2 pos);
 
 	cocos2d::Sprite *circle_background;
 	inline float getRadius() 

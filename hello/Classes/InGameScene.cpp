@@ -55,7 +55,8 @@ bool InGameScene::init()
 	background->addChild(begin);
 
 	// Obstacle
-	circle = ObstacleCircel::create();
+	Vec2 circlePointStart = Vec2(400, 800);
+	circle = ObstacleCircel::create(circlePointStart);
 	circle->setPosition(Vec2(400, 800));
 	addChild(circle);
 
@@ -105,10 +106,6 @@ void InGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 	auto action = Sequence::create( move_ease_in, nullptr);
 	auto cam = Camera::getDefaultCamera();
 	cam->runAction(action);
-
-	CCLOG("x: %f, y:%f", player->getPosition().x, player->getPosition().y);
-	CCLOG("x: %f, y:%f", circle->getPosition().x, circle->getPosition().y);
-
 }
 
 // called when the device goes to another application such as a phone call
@@ -124,7 +121,7 @@ void InGameScene::update(float dt)
 	if(dis < r2)
 	{
 		circle->isCollision = true;
-		// CCLOG("Player ball detect collision .......");
+		CCLOG("Player ball detect collision .......");
 	}
 	else
 	{
