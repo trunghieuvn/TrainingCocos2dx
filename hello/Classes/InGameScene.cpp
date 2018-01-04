@@ -96,9 +96,10 @@ void InGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 	Vec2 denta = Vec2(x, y);
 	player->Move(denta);
 
-	/*auto move_ease_in = EaseOut::create(MoveBy::create(0.25f, Vec2(-x, -y)), 2.0f);
+	auto move_ease_in = EaseOut::create(MoveBy::create(0.25f, Vec2(0, y)), 2.0f);
 	auto action = Sequence::create(move_ease_in, nullptr);
-	background->runAction(action);*/
+	auto cam = Camera::getDefaultCamera();
+	cam->runAction(action);
 }
 
 // called when the device goes to another application such as a phone call
