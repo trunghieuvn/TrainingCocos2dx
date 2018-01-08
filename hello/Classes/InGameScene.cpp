@@ -1,6 +1,6 @@
 #include "InGameScene.h"
 #include "SimpleAudioEngine.h"
-
+#include "Background.h"
 
 USING_NS_CC;
 
@@ -23,15 +23,8 @@ bool InGameScene::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	// Background
-	background = Layer::create();
-	this->addChild(background);
-
-	auto background1 = Sprite::create("background.png");
-	background1->setPosition(Vec2(origin.x + visibleSize.width / 2,
-		origin.y + visibleSize.height / 2));
-	auto background2 = Sprite::create("background.png");
-	background2->setPosition(Vec2(background1->getPosition().x,
-		background1->getPosition().y + background1->getContentSize().height));
+	sceneLayer = Layer::create();
+	this->addChild(sceneLayer);
 
 	// Add Event Touch 
 	EventListenerTouchOneByOne *listener = EventListenerTouchOneByOne::create();
@@ -42,30 +35,17 @@ bool InGameScene::init()
 	listener->onTouchCancelled = CC_CALLBACK_2(InGameScene::onTouchCancelled, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 	// Add Event Touch End
+	Background* background1 = Background::create("background.png", "red_border.png", Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+	Background* background2 = Background::create("background.png", "red_border.png", Vec2(background1->background->getPosition().x, background1->background->getPosition().y + background1->background->getContentSize().height));
+	
+	sceneLayer->addChild(background1);
+	sceneLayer->addChild(background2);
 
 	Vec2 pointStart = Vec2(320, 250);
 	auto begin = Sprite::create("begin.png");
 	begin->setPosition(pointStart);
+	sceneLayer->addChild(begin);
 
-	background->addChild(background1);
-	background->addChild(background2);
-	background->addChild(begin);
-
-	Size backgroundSize = background1->getContentSize();
-	{
-		auto border = Sprite::create("red_border.png");
-		float scale = backgroundSize.height / border->getContentSize().height;
-		border->setScaleY(scale);
-		border->setPosition(Vec2(border->getContentSize().width / 2, backgroundSize.height / 2));
-		background->addChild(border);
-	}
-	{
-		auto border = Sprite::create("red_border.png");
-		float scale = backgroundSize.height / border->getContentSize().height;
-		border->setScaleY(scale);
-		border->setPosition(Vec2( visibleSize.width - border->getContentSize().width / 2, backgroundSize.height / 2));
-		background->addChild(border);
-	}
 	// Obstacle
 	Vec2 circlePointStart = Vec2(400, 800);
 	circle = ObstacleCircel::create(circlePointStart);

@@ -26,7 +26,7 @@ private:
 	// Add Event Touch End
 
 	Player *player;
-	cocos2d::Layer *background;
+	cocos2d::Layer *sceneLayer;
 
 	ObstacleCircel* circle;
 
