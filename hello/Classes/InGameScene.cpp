@@ -23,15 +23,15 @@ bool InGameScene::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	// Background
+	background = Layer::create();
+	this->addChild(background);
+
 	auto background1 = Sprite::create("background.png");
 	background1->setPosition(Vec2(origin.x + visibleSize.width / 2,
 		origin.y + visibleSize.height / 2));
 	auto background2 = Sprite::create("background.png");
 	background2->setPosition(Vec2(background1->getPosition().x,
 		background1->getPosition().y + background1->getContentSize().height));
-	
-	auto border = Sprite::create("red_border.png");
-
 
 	// Add Event Touch 
 	EventListenerTouchOneByOne *listener = EventListenerTouchOneByOne::create();
@@ -47,13 +47,25 @@ bool InGameScene::init()
 	auto begin = Sprite::create("begin.png");
 	begin->setPosition(pointStart);
 
-	background = Layer::create();
-	this->addChild(background);
-
 	background->addChild(background1);
 	background->addChild(background2);
 	background->addChild(begin);
 
+	Size backgroundSize = background1->getContentSize();
+	{
+		auto border = Sprite::create("red_border.png");
+		float scale = backgroundSize.height / border->getContentSize().height;
+		border->setScaleY(scale);
+		border->setPosition(Vec2(border->getContentSize().width / 2, backgroundSize.height / 2));
+		background->addChild(border);
+	}
+	{
+		auto border = Sprite::create("red_border.png");
+		float scale = backgroundSize.height / border->getContentSize().height;
+		border->setScaleY(scale);
+		border->setPosition(Vec2( visibleSize.width - border->getContentSize().width / 2, backgroundSize.height / 2));
+		background->addChild(border);
+	}
 	// Obstacle
 	Vec2 circlePointStart = Vec2(400, 800);
 	circle = ObstacleCircel::create(circlePointStart);
