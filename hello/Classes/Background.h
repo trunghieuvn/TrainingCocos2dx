@@ -11,7 +11,6 @@ public:
     virtual bool init(const char* nameTextureBackground, const char* nameTextureBorder, cocos2d::Vec2 pos);
 
 	cocos2d::Sprite *background;
-
 };
 
 #endif // __Background_H__

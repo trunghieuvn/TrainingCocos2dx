@@ -1,7 +1,8 @@
-#ifndef __Background_H__
-#define __Background_H__
+#ifndef __BackgroundScrolling_H__
+#define __BackgroundScrolling_H__
 
 #include "cocos2d.h"
+#include "Background.h"
 
 class BackgroundScrolling : public cocos2d::Node
 {
@@ -10,12 +11,16 @@ public:
 
     virtual bool init();
 
-	cocos2d::Sprite *background;
-	
 	bool isCollision;
+
+	Background* background1;
+	Background* background2;
+	Background* background3;
+
+	void ChangeBackgroundScrolling(cocos2d::Node* target);
 private:
 	
 	void update(float delta);
 };
 
-#endif // __Background_H__
+#endif // __BackgroundScrolling_H__

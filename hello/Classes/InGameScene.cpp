@@ -1,6 +1,5 @@
 #include "InGameScene.h"
 #include "SimpleAudioEngine.h"
-#include "Background.h"
 
 USING_NS_CC;
 
@@ -35,11 +34,9 @@ bool InGameScene::init()
 	listener->onTouchCancelled = CC_CALLBACK_2(InGameScene::onTouchCancelled, this);
 	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 	// Add Event Touch End
-	Background* background1 = Background::create("background.png", "red_border.png", Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
-	Background* background2 = Background::create("background.png", "red_border.png", Vec2(background1->background->getPosition().x, background1->background->getPosition().y + background1->background->getContentSize().height));
 	
-	sceneLayer->addChild(background1);
-	sceneLayer->addChild(background2);
+	backgroundScrolling = BackgroundScrolling::create();
+	sceneLayer->addChild(backgroundScrolling);
 
 	Vec2 pointStart = Vec2(320, 250);
 	auto begin = Sprite::create("begin.png");
@@ -95,8 +92,16 @@ void InGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 	player->Move(denta);
 
 	auto move_ease_in = EaseOut::create(MoveBy::create(1.75f, Vec2(0, y)), 2.0f);
-	auto action = Sequence::create( move_ease_in, nullptr);
+
 	auto cam = Camera::getDefaultCamera();
+	CCLOG("camera pos: %f, %f", cam->getPosition().x, cam->getPosition().y);
+	auto doneMove = CallFunc::create([this]()
+	{
+		// Check camera scrolling background
+		backgroundScrolling->ChangeBackgroundScrolling(player);
+	});
+	auto action = Sequence::create(move_ease_in, doneMove, nullptr);
+
 	cam->runAction(action);
 }
 
@@ -113,7 +118,7 @@ void InGameScene::update(float dt)
 	if(dis < r2)
 	{
 		circle->isCollision = true;
-		CCLOG("Player ball detect collision .......");
+		//CCLOG("Player ball detect collision .......");
 	}
 	else
 	{

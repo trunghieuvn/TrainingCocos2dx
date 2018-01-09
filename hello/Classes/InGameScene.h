@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "Player.h"
 #include "ObstacleCircel.h"
+#include "BackgroundScrolling.h"
 
 class InGameScene : public cocos2d::Scene
 {
@@ -29,7 +30,7 @@ private:
 	cocos2d::Layer *sceneLayer;
 
 	ObstacleCircel* circle;
-
+	BackgroundScrolling * backgroundScrolling;
 	void update(float dt);
 };
 
