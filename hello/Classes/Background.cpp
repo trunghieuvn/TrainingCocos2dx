@@ -28,20 +28,17 @@ bool Background::init(const char* nameTextureBackground, const char* nameTexture
 	addChild(background);
 
 	Size backgroundSize = background->getContentSize();
-	{
-		auto border = Sprite::create(nameTextureBorder);
-		float scale = backgroundSize.height / border->getContentSize().height;
-		border->setScaleY(scale);
-		border->setPosition(Vec2(border->getContentSize().width / 2, pos.y));
-		addChild(border);
-	}
-	{
-		auto border = Sprite::create(nameTextureBorder);
-		float scale = backgroundSize.height / border->getContentSize().height;
-		border->setScaleY(scale);
-		border->setPosition(Vec2(visibleSize.width - border->getContentSize().width / 2, pos.y));
-		addChild(border);
-	}
+	
+	borderLeft = Sprite::create(nameTextureBorder);
+	float scale = backgroundSize.height / borderLeft->getContentSize().height;
+	borderLeft->setScaleY(scale);
+	borderLeft->setPosition(Vec2(borderLeft->getContentSize().width / 2, pos.y));
+	addChild(borderLeft);
+
+	borderRight = Sprite::create(nameTextureBorder);
+	borderRight->setScaleY(scale);
+	borderRight->setPosition(Vec2(visibleSize.width - borderRight->getContentSize().width / 2, pos.y));
+	addChild(borderRight);
 
 	return true;
 }

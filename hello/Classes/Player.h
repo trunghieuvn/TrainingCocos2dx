@@ -26,6 +26,8 @@ public:
 
 	inline cocos2d::Sprite* getBall() { return ball; }
 private:
+	cocos2d::Sequence *myAction;
+
 	cocos2d::Vec2 pointStart;
 
 	cocos2d::Sprite *ball;

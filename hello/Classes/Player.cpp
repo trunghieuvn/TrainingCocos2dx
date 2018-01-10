@@ -66,15 +66,15 @@ void Player::Move(cocos2d::Vec2 point)
 	auto move_ease_in = EaseOut::create(MoveBy::create(0.5f, Vec2(point.x, point.y)), 2.0f);
 
 	// auto end = CallFunc::create(this, CC_CALLFUNC_SELECTOR(Player::doneMove));
-	auto doneMove = CallFunc::create([this, point]() 
+	auto doneMove = CallFunc::create([this, point]()
 	{
 		mState = PlayerState::Rotate;
 		parent = 0;
 		directionArrow->setPercentage(parent);
 	});
 
-	auto action = Sequence::create(move_ease_in, doneMove, nullptr);
-	this->runAction(action);
+	myAction = Sequence::create(move_ease_in, doneMove, nullptr);
+	this->runAction(myAction);
 }
 
 void Player::update(float dt)
@@ -117,5 +117,11 @@ void Player::update(float dt)
 	}
 	default:
 		break;
+	}
+	if (getPositionX() < ball->getContentSize().width / 2 || getPositionY() + ball->getContentSize().width / 2 > Director::getInstance()->getWinSize().width)
+	{
+		CCLOG("Die..........");
+		stopAction(myAction);
+
 	}
 }

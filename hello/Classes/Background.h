@@ -11,6 +11,11 @@ public:
     virtual bool init(const char* nameTextureBackground, const char* nameTextureBorder, cocos2d::Vec2 pos);
 
 	cocos2d::Sprite *background;
+
+	inline cocos2d::Sprite * getBorderLeft() { return borderLeft; }
+	inline cocos2d::Sprite * getBorderRight() { return borderRight; }
+private:
+	cocos2d::Sprite *borderLeft, *borderRight;
 };
 
 #endif // __Background_H__
