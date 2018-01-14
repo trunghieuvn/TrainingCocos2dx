@@ -23,12 +23,23 @@
 		490304711FFBD9190009652B /* arrow_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4903046B1FFBD9180009652B /* arrow_2.png */; };
 		490304721FFBD9190009652B /* arrow_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4903046C1FFBD9180009652B /* arrow_3.png */; };
 		490304731FFBD9190009652B /* arrow_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4903046D1FFBD9190009652B /* arrow_1.png */; };
-		490304741FFBD9190009652B /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 4903046E1FFBD9190009652B /* ball.png */; };
 		490304751FFBD9190009652B /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 4903046F1FFBD9190009652B /* main.png */; };
 		4903047A1FFBD9290009652B /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 490304771FFBD9290009652B /* Player.cpp */; };
 		4903047B1FFBD9290009652B /* InGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 490304781FFBD9290009652B /* InGameScene.cpp */; };
+		4909481F1FFD2CE500980542 /* ObstacleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4909481A1FFD2CE500980542 /* ObstacleManager.cpp */; };
+		490948201FFD2CE500980542 /* ObstacleCircel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4909481D1FFD2CE500980542 /* ObstacleCircel.cpp */; };
+		490948221FFD2DB300980542 /* begin.png in Resources */ = {isa = PBXBuildFile; fileRef = 490948211FFD2DB300980542 /* begin.png */; };
+		4914C4172003B31200165910 /* BackgroundScrolling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4914C4122003B31200165910 /* BackgroundScrolling.cpp */; };
+		4914C4182003B31200165910 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4914C4162003B31200165910 /* Background.cpp */; };
+		4914C41A2003B3D300165910 /* red_border.png in Resources */ = {isa = PBXBuildFile; fileRef = 4914C4192003B3D300165910 /* red_border.png */; };
+		499739A220062EE800D682F4 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4997399F20062EE800D682F4 /* background2.png */; };
+		499739A320062EE800D682F4 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 499739A120062EE800D682F4 /* background1.png */; };
 		499779931FFBEE6900095668 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 490304771FFBD9290009652B /* Player.cpp */; };
 		499779941FFBEE7100095668 /* InGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 490304781FFBD9290009652B /* InGameScene.cpp */; };
+		49DEBD491FFE8DEB00FB27D9 /* circle_background_in.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DEBD441FFE8DEB00FB27D9 /* circle_background_in.png */; };
+		49DEBD4A1FFE8DEB00FB27D9 /* circle_foreground_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DEBD461FFE8DEB00FB27D9 /* circle_foreground_on.png */; };
+		49DEBD4B1FFE8DEB00FB27D9 /* circle_foreground.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DEBD471FFE8DEB00FB27D9 /* circle_foreground.png */; };
+		49DEBD4C1FFE8DEB00FB27D9 /* circle_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DEBD481FFE8DEB00FB27D9 /* circle_background.png */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -131,12 +142,27 @@
 		4903046B1FFBD9180009652B /* arrow_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_2.png; sourceTree = "<group>"; };
 		4903046C1FFBD9180009652B /* arrow_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_3.png; sourceTree = "<group>"; };
 		4903046D1FFBD9190009652B /* arrow_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_1.png; sourceTree = "<group>"; };
-		4903046E1FFBD9190009652B /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		4903046F1FFBD9190009652B /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
 		490304761FFBD9290009652B /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		490304771FFBD9290009652B /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		490304781FFBD9290009652B /* InGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InGameScene.cpp; sourceTree = "<group>"; };
 		490304791FFBD9290009652B /* InGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InGameScene.h; sourceTree = "<group>"; };
+		4909481A1FFD2CE500980542 /* ObstacleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObstacleManager.cpp; sourceTree = "<group>"; };
+		4909481C1FFD2CE500980542 /* ObstacleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObstacleManager.h; sourceTree = "<group>"; };
+		4909481D1FFD2CE500980542 /* ObstacleCircel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObstacleCircel.cpp; sourceTree = "<group>"; };
+		4909481E1FFD2CE500980542 /* ObstacleCircel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObstacleCircel.h; sourceTree = "<group>"; };
+		490948211FFD2DB300980542 /* begin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = begin.png; sourceTree = "<group>"; };
+		4914C4122003B31200165910 /* BackgroundScrolling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackgroundScrolling.cpp; sourceTree = "<group>"; };
+		4914C4142003B31200165910 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
+		4914C4152003B31200165910 /* BackgroundScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundScrolling.h; sourceTree = "<group>"; };
+		4914C4162003B31200165910 /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
+		4914C4192003B3D300165910 /* red_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_border.png; sourceTree = "<group>"; };
+		4997399F20062EE800D682F4 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		499739A120062EE800D682F4 /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
+		49DEBD441FFE8DEB00FB27D9 /* circle_background_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_background_in.png; sourceTree = "<group>"; };
+		49DEBD461FFE8DEB00FB27D9 /* circle_foreground_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_foreground_on.png; sourceTree = "<group>"; };
+		49DEBD471FFE8DEB00FB27D9 /* circle_foreground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_foreground.png; sourceTree = "<group>"; };
+		49DEBD481FFE8DEB00FB27D9 /* circle_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_background.png; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -307,11 +333,18 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				499739A120062EE800D682F4 /* background1.png */,
+				4997399F20062EE800D682F4 /* background2.png */,
+				4914C4192003B3D300165910 /* red_border.png */,
+				49DEBD441FFE8DEB00FB27D9 /* circle_background_in.png */,
+				49DEBD481FFE8DEB00FB27D9 /* circle_background.png */,
+				49DEBD461FFE8DEB00FB27D9 /* circle_foreground_on.png */,
+				49DEBD471FFE8DEB00FB27D9 /* circle_foreground.png */,
+				490948211FFD2DB300980542 /* begin.png */,
 				4903046D1FFBD9190009652B /* arrow_1.png */,
 				4903046B1FFBD9180009652B /* arrow_2.png */,
 				4903046C1FFBD9180009652B /* arrow_3.png */,
 				4903046A1FFBD9180009652B /* background.png */,
-				4903046E1FFBD9190009652B /* ball.png */,
 				4903046F1FFBD9190009652B /* main.png */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				46880B7A19C43A67006E1F66 /* HelloWorld.png */,
@@ -323,6 +356,14 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4914C4162003B31200165910 /* Background.cpp */,
+				4914C4142003B31200165910 /* Background.h */,
+				4914C4122003B31200165910 /* BackgroundScrolling.cpp */,
+				4914C4152003B31200165910 /* BackgroundScrolling.h */,
+				4909481D1FFD2CE500980542 /* ObstacleCircel.cpp */,
+				4909481E1FFD2CE500980542 /* ObstacleCircel.h */,
+				4909481A1FFD2CE500980542 /* ObstacleManager.cpp */,
+				4909481C1FFD2CE500980542 /* ObstacleManager.h */,
 				490304781FFBD9290009652B /* InGameScene.cpp */,
 				490304791FFBD9290009652B /* InGameScene.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
@@ -491,9 +532,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
-				490304741FFBD9190009652B /* ball.png in Resources */,
+				499739A320062EE800D682F4 /* background1.png in Resources */,
+				49DEBD4C1FFE8DEB00FB27D9 /* circle_background.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				49DEBD4B1FFE8DEB00FB27D9 /* circle_foreground.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				490304751FFBD9190009652B /* main.png in Resources */,
@@ -504,18 +547,23 @@
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				49DEBD491FFE8DEB00FB27D9 /* circle_background_in.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				490304711FFBD9190009652B /* arrow_2.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				499739A220062EE800D682F4 /* background2.png in Resources */,
+				490948221FFD2DB300980542 /* begin.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				490304731FFBD9190009652B /* arrow_1.png in Resources */,
 				490304701FFBD9190009652B /* background.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
+				4914C41A2003B3D300165910 /* red_border.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				490304721FFBD9190009652B /* arrow_3.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
+				49DEBD4A1FFE8DEB00FB27D9 /* circle_foreground_on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,10 +587,14 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				4903047A1FFBD9290009652B /* Player.cpp in Sources */,
+				4914C4172003B31200165910 /* BackgroundScrolling.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				490948201FFD2CE500980542 /* ObstacleCircel.cpp in Sources */,
+				4909481F1FFD2CE500980542 /* ObstacleManager.cpp in Sources */,
 				4903047B1FFBD9290009652B /* InGameScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				4914C4182003B31200165910 /* Background.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
