@@ -16,9 +16,10 @@ echo.
 echo 	  Working ON: %CUR_PATH%
 echo.
 
-echo 	0. Clean
+echo 	0. Clean GIT
 echo 	1. Remove folder auto genarate
-echo 	2. Setup
+echo 	2. Update to HEAD
+echo 	3. Setup Cocos2dx
 
 echo 	99. Exit
 
@@ -27,7 +28,8 @@ set /p opt=		Enter choose:
 
 if "%opt%"=="0" goto Clean
 if "%opt%"=="1" goto RemoveFolder
-if "%opt%"=="2" goto Setup
+if "%opt%"=="2" goto UpdatetoHead
+if "%opt%"=="3" goto Setup
 
 
 REM-------------------------Function--------------------------
@@ -47,6 +49,10 @@ REM-------------------------Function--------------------------
 	rd /s /q "proj.win32/Debug.win32"
 	rd /s /q "packages"
 	rd /s /q "temp"
+	rd /s /q "library"
+	rd /s /q "local"
+	rd /s /q "packages"
+	rd /s /q "temp"
 	pause
 	exit /b
 	
@@ -55,6 +61,12 @@ REM-------------------------Function--------------------------
 	call cocos new hello_tmp -l cpp
 	call move hello_tmp/cocos2d %CUR_PATH%
 	rd /s /q "hello_tmp"
+	pause
+	exit /b
+:fUpdateToHead 
+	echo Update to HEAD
+	call git fetch
+	call git pull
 	pause
 	exit /b
 :fBuild_Apk
@@ -77,19 +89,17 @@ REM------------ 01. Remove folder -------------
 goto :End
 REM----------------------------------------
 
-REM------------ 02. Setup---------------
-:Setup
-	call :fSetup
+REM------------ 02. Update to HEAD---------------
+:UpdatetoHead
+	call :fUpdateToHead
 
 goto :End	
 REM----------------------------------------
 
-REM------------ 03. Build Full---------------
+REM------------ 03. SetUp Cocos2dx---------------
 :Build_Full
-	echo Build Full SO + Apk
-
-	call :fBuild_Native
-	call :fBuild_Apk
+	echo SetUp Cocos2dx
+	call :fSetup
 	
 goto :End	
 REM----------------------------------------
