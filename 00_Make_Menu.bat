@@ -29,7 +29,7 @@ set /p opt=		Enter choose:
 if "%opt%"=="0" goto Clean
 if "%opt%"=="1" goto RemoveFolder
 if "%opt%"=="2" goto UpdatetoHead
-if "%opt%"=="3" goto Setup
+if "%opt%"=="3" goto SetUpCocos2dx
 
 
 REM-------------------------Function--------------------------
@@ -56,7 +56,7 @@ REM-------------------------Function--------------------------
 	pause
 	exit /b
 	
-:fSetup
+:fSetUpCocos2dx
 	echo Setup
 	call cocos new hello_tmp -l cpp
 	call move hello_tmp/cocos2d %CUR_PATH%
@@ -65,9 +65,10 @@ REM-------------------------Function--------------------------
 	exit /b
 :fUpdateToHead 
 	echo Update to HEAD
+	cd %CUR_PATH%
 	call git fetch
+	cd %CUR_PATH%
 	call git pull
-	pause
 	exit /b
 :fBuild_Apk
 	echo Build APK
@@ -97,9 +98,9 @@ goto :End
 REM----------------------------------------
 
 REM------------ 03. SetUp Cocos2dx---------------
-:Build_Full
+:SetUpCocos2dx
 	echo SetUp Cocos2dx
-	call :fSetup
+	call :fSetUpCocos2dx
 	
 goto :End	
 REM----------------------------------------
