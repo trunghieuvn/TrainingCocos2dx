@@ -3,11 +3,11 @@ Game mobile Cocos2dx source debug
 </br>Add skype: trunghieu-it@hotmail.com 
 </br>Để được thêm vào group skype support :))
 </br>
-</br><h3>Chương trình đào tạo</h3>
-</br>(1) Kiến thức lập trình C/C++
-</br>(2) Kiến thức lập trình hướng đối tượng với C++
-</br>(3) Kiến thức Game nền tảng xây dựng framework Game
-</br>(4) Kiến thức Game Engine với Cocos
+</br><h3>Kiến thức </h3>
+</br>(1) Lập trình C/C++
+</br>(2) Lập trình hướng đối tượng với C++
+</br>(3) Game nền tảng xây dựng framework Game
+</br>(4) Game Engine với Cocos
 </br>(5) Xây dựng Game hoàn thiện  
 </br>
 </br><h1>Quyền lợi</h1>
