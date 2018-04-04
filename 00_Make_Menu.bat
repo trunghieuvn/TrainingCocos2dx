@@ -41,8 +41,9 @@ REM-------------------------Function--------------------------
 :fRemoveFolder
 	echo remove folder
 	REM cd %FBUILD%
-	rd /s /q "library"
-	rd /s /q "local"
+	rd /s /q "bin"
+	rd /s /q "proj.win32/hello.VC.db"
+	rd /s /q "proj.win32/Debug.win32"
 	rd /s /q "packages"
 	rd /s /q "temp"
 	pause
