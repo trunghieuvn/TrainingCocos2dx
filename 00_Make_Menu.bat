@@ -18,7 +18,7 @@ echo.
 
 echo 	0. Clean
 echo 	1. Remove folder auto genarate
-echo 	5. Build Full (SO + Apk)
+echo 	2. Setup
 
 echo 	99. Exit
 
@@ -27,6 +27,7 @@ set /p opt=		Enter choose:
 
 if "%opt%"=="0" goto Clean
 if "%opt%"=="1" goto RemoveFolder
+if "%opt%"=="2" goto Setup
 
 
 REM-------------------------Function--------------------------
@@ -46,6 +47,14 @@ REM-------------------------Function--------------------------
 	rd /s /q "proj.win32/Debug.win32"
 	rd /s /q "packages"
 	rd /s /q "temp"
+	pause
+	exit /b
+	
+:fSetup
+	echo Setup
+	call cocos new hello_tmp -l cpp
+	call move hello_tmp/cocos2d %CUR_PATH%
+	rd /s /q "hello_tmp"
 	pause
 	exit /b
 :fBuild_Apk
@@ -68,9 +77,9 @@ REM------------ 01. Remove folder -------------
 goto :End
 REM----------------------------------------
 
-REM------------ 03. Build APK---------------
-:Build_Apk
-	call :fBuild_Apk
+REM------------ 02. Setup---------------
+:Setup
+	call :fSetup
 
 goto :End	
 REM----------------------------------------
