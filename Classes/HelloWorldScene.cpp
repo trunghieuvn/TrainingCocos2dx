@@ -31,7 +31,7 @@ bool HelloWorld::init()
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("image.plist");
 
 	auto backgroud = Sprite::createWithSpriteFrameName("backgroud.png");
-	backgroud->setPosition(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2);
+	backgroud->setPosition(origin.x + visibleSize.x / 2, origin.y + visibleSize.y / 2);
 	
     return true;
 }
