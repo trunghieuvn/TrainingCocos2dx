@@ -20,6 +20,7 @@ echo 	0. Clean GIT
 echo 	1. Remove folder auto genarate
 echo 	2. Update to HEAD
 echo 	3. Setup Cocos2dx
+echo 	4. Build Win32
 
 echo 	99. Exit
 
@@ -30,6 +31,7 @@ if "%opt%"=="0" goto Clean
 if "%opt%"=="1" goto RemoveFolder
 if "%opt%"=="2" goto UpdatetoHead
 if "%opt%"=="3" goto SetUpCocos2dx
+if "%opt%"=="4" goto BuildWin32
 
 
 REM-------------------------Function--------------------------
@@ -77,6 +79,11 @@ REM-------------------------Function--------------------------
 	adb install -r app\build\outputs\apk\debug\app-debug.apk
 	adb shell am start -n "hieu.com.a3dengine/hieu.com.a3dengine.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
 	exit /b
+	
+:fBuildWin32
+	echo Build Win32 
+	call cocos run -p win32
+	exit /b
 REM-----------------------------------------------------------
 
 REM------------ 00. Clean GIT.-------------
@@ -84,23 +91,29 @@ REM------------ 00. Clean GIT.-------------
 	call :fClean
 goto :End
 
-REM------------ 01. Remove folder -------------
+REM------------ 01. Remove folder ---------
 :RemoveFolder
 	call :fRemoveFolder
 goto :End
 REM----------------------------------------
 
-REM------------ 02. Update to HEAD---------------
+REM------------ 02. Update to HEAD---------
 :UpdatetoHead
 	call :fUpdateToHead
 
 goto :End	
 REM----------------------------------------
 
-REM------------ 03. SetUp Cocos2dx---------------
+REM------------ 03. SetUp Cocos2dx---------
 :SetUpCocos2dx
-	echo SetUp Cocos2dx
 	call :fSetUpCocos2dx
+	
+goto :End	
+REM----------------------------------------
+
+REM------------ 03. BuildWin32-------------
+:BuildWin32
+	call :fBuildWin32
 	
 goto :End	
 REM----------------------------------------
