@@ -13,8 +13,10 @@ Tool Build:
 - Win32: cocos compile -p win32 
 - Android: cocos compile -p android --android-studio 
 ## Script Build: Setup, Build win32, Build Android sử dụng 
-``` 00_Make_Menu.bat 
-``` 
+
+   ```
+   00_Make_Menu.bat
+   ``` 
 </br> - Nơi support lỗi, search các fix lỗi trong khóa tranining đã gặp: https://github.com/HieuTranTrung1204/TrainingCocos2dx/issues/
 </br> - NUpload source code lên git để làm quen với cách làm việc nhóm và quản lý source code.
 </br>## Tài nguyên
