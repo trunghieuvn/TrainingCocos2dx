@@ -10,8 +10,14 @@ Tool Build:
  - Visual Studio 2013 
 
 ## Command build
-- Win32: cocos compile -p win32 
-- Android: cocos compile -p android --android-studio 
+- Win32: 
+  ```
+   cocos compile -p win32 
+  ```
+- Android: 
+ ``` 
+ cocos compile -p android --android-studio 
+ ```
 ## Script Build: Setup, Build win32, Build Android sử dụng 
 
    ```
