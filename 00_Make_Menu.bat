@@ -21,6 +21,7 @@ echo 	1. Remove folder auto genarate
 echo 	2. Update to HEAD
 echo 	3. Setup Cocos2dx
 echo 	4. Build Win32
+echo 	5. Build Android
 
 echo 	99. Exit
 
@@ -32,6 +33,7 @@ if "%opt%"=="1" goto RemoveFolder
 if "%opt%"=="2" goto UpdatetoHead
 if "%opt%"=="3" goto SetUpCocos2dx
 if "%opt%"=="4" goto BuildWin32
+if "%opt%"=="5" goto BuildAndroid
 
 
 REM-------------------------Function--------------------------
@@ -84,6 +86,11 @@ REM-------------------------Function--------------------------
 	echo Build Win32 
 	call cocos run -p win32
 	exit /b
+	
+:fBuildAndroid
+	echo Build Android 
+	call cocos run -p android --android-studio
+	exit /b
 REM-----------------------------------------------------------
 
 REM------------ 00. Clean GIT.-------------
@@ -111,12 +118,20 @@ REM------------ 03. SetUp Cocos2dx---------
 goto :End	
 REM----------------------------------------
 
-REM------------ 03. BuildWin32-------------
+REM------------ 04. BuildWin32-------------
 :BuildWin32
 	call :fBuildWin32
 	
 goto :End	
 REM----------------------------------------
+
+REM------------ 05. BuildAndroid-------------
+:BuildAndroid
+	call :fBuildAndroid
+	
+goto :End	
+REM----------------------------------------
+
 
 :End
 
