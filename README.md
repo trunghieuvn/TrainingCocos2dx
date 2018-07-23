@@ -1,4 +1,4 @@
-</br># Cocos2dx
+# Cocos2dx
 Game mobile Cocos2dx source debug 
 </br>Add skype: trunghieu-it@hotmail.com 
 Tool Build: 
@@ -15,17 +15,19 @@ Tool Build:
    cocos compile -p win32 
   ```
 - Android: 
- ``` 
- cocos compile -p android --android-studio 
- ```
+  ``` 
+  cocos compile -p android --android-studio 
+  ```
 ## Script Build: Setup, Build win32, Build Android sử dụng 
 
-   ```
-   00_Make_Menu.bat
-   ``` 
-</br> - Nơi support lỗi, search các fix lỗi trong khóa tranining đã gặp: https://github.com/HieuTranTrung1204/TrainingCocos2dx/issues/
-</br> - NUpload source code lên git để làm quen với cách làm việc nhóm và quản lý source code.
-</br>## Tài nguyên
+  ```
+    00_Make_Menu.bat
+  ``` 
+## Nơi support lỗi, search các fix lỗi trong khóa tranining đã gặp
+  - https://github.com/HieuTranTrung1204/TrainingCocos2dx/issues/
+  - Upload source code lên git để làm quen với cách làm việc nhóm và quản lý source code.
+
+## Tài nguyên
  -  Sprite (Textures, Anim)
  - https://opengameart.org/content/lots-of-free-2d-tiles-and-sprites-by-hyptosis
  - https://www.gameart2d.com/freebies.html
