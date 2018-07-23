@@ -1,5 +1,8 @@
 @echo OFF
 cls
+
+if exist "D:\DevTools\Android\android-ndk-r10e\" set NDK_ROOT=D:\DevTools\Android\android-ndk-r10e
+
 set CUR_PATH=%~dp0
 
 set FBUILD=%~dp0\Tools\FastBuild
