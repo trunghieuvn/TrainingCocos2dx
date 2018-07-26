@@ -23,6 +23,25 @@ Tool Build:
   ```
     00_Make_Menu.bat
   ``` 
+  
+    
+    
+        ===================================
+        ===============MENU================
+        ===================================
+
+          Working ON: D:\Training\TrainingCocos2dx\
+
+        0. Clean GIT
+        1. Remove folder auto genarate
+        2. Update to HEAD
+        3. Setup Cocos2dx
+        4. Build Win32
+        5. Build Android
+        99. Exit
+
+Enter choose:
+    ```
 ## Nơi support lỗi, search các fix lỗi trong khóa tranining đã gặp
   - https://github.com/HieuTranTrung1204/TrainingCocos2dx/issues/
   - Upload source code lên git để làm quen với cách làm việc nhóm và quản lý source code.
